@@ -41,11 +41,7 @@
 
 	function showImage(thumbnail){				
 		$('#main-container img').attr('src', $(thumbnail).attr('src'))
-	}
-
-	function zoomIn(thumbnail){
-		console.log()
-	}
+	}	
 	
 	function displayDetails(thumbnail){
 		var key = $(thumbnail).attr('id');
@@ -54,7 +50,7 @@
 	}
 
 	$( document ).ready(function() {				
-  		createThumbnails();
+  		createThumbnails();  		
 	})	
 
 </script>
@@ -111,7 +107,20 @@ header p{
     background:#E62F17;
     margin-top: -12px;
 }
+#sidebar img{	
+	position: relative;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;	
+	left: 5px;
+	padding-bottom: 10px;
+	width: 29px;
+	height: 29px;	
+}
 
+#sidebar img:hover{	
+	background-color: #34383c;
+}	
 #main-container{	
   position: absolute;
   margin: auto;
@@ -180,12 +189,19 @@ header p{
 		<p>Women's day celebrations<br/><br/>13th Feb 2015<br/><br/>Parade grounds</p>		
 	</div>	
 	<div id="sidebar">
+		<img src="icons/home.ico" vspace="10" />
+		<img src="icons/details.ico" vspace="10"/>
+		<img src="icons/addlist.ico" vspace="10"/>	
+		<img src="icons/user.ico" vspace="10"/>
+		<img src="icons/wheel.ico" vspace="10"/>
+		<img src="icons/wifi.ico" vspace="10"/>
+		<img src="icons/settings.ico" vspace="10"/>
 	</div>
 	<div id="icon-pane">
 		<img src="icons/grid_black.ico"/>			
 	</div>
 	<div id="main-container">		
-		<img src="samples/1.jpg"/>
+		<img  id="photoframe" src="samples/1.jpg"/>
 	</div>
 	<div id="thumbnail-container">		
 	</div>
