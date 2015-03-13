@@ -28,11 +28,14 @@
 		  	var source = dir+i.toString()+".jpg";
 		  	var thumbnail = $('<img>',{id:i.toString(), src:source});
 		  	thumbnail.css(thumbnailCSS);			
-			$('#slide-container').append(thumbnail);
+			$('#thumbnail-container').append(thumbnail);
 			thumbnail.on("click", function(){
 				showImage(this);
 				displayDetails(this);
-			});			
+			});
+			thumbnail.on("mouseover", function () {
+			   // zoomIn(this);
+			});
 		}  
 	}
 
@@ -40,6 +43,10 @@
 		$('#main-container img').attr('src', $(thumbnail).attr('src'))
 	}
 
+	function zoomIn(thumbnail){
+		console.log()
+	}
+	
 	function displayDetails(thumbnail){
 		var key = $(thumbnail).attr('id');
 		console.log(details[key])
@@ -119,8 +126,22 @@ header p{
 	max-width:100%;
 	max-height:100%;
 	padding:10px;
-	border:3px solid #021a40	
+	border:3px solid #021a40;
+	-webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    -ms-transition: all 0.8s ease;
+    transition: all 0.8s ease;
 }
+#main-container img:HOVER{
+	border-radius: 50%;
+  	-webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
 #icon-pane{	
 	position:absolute;
 	top : 90px	;
@@ -133,7 +154,7 @@ header p{
 #icon-pane img{		
 	height : 30px;			
 }
-#slide-container{
+#thumbnail-container{
 	width: 96%;
 	background-color: #151515;
 	height: 120px;
@@ -141,7 +162,7 @@ header p{
     left :60px;
     bottom:0px;    
 }
-#slide-container img:hover { 
+#thumbnail-container img:hover { 
     background-color: #00ACED;
 }
 
@@ -155,7 +176,8 @@ header p{
 		<p>Vamsi Emani</p>		
 	</header>
 	<div id="event-detail">
-		<h2><u>Upcoming Events</u></h2>			
+		<h2><u>Upcoming Events</u></h2>	
+		<p>Women's day celebrations<br/><br/>13th Feb 2015<br/><br/>Parade grounds</p>		
 	</div>	
 	<div id="sidebar">
 	</div>
@@ -165,8 +187,7 @@ header p{
 	<div id="main-container">		
 		<img src="samples/1.jpg"/>
 	</div>
-	<div id="slide-container">	
-	
+	<div id="thumbnail-container">		
 	</div>
 </body>
 </html>
