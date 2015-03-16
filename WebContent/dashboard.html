@@ -18,7 +18,7 @@
 		2 : "+ Strings and guitars<br/><br/>+ 18th Feb 2015<br/><br/>+ Parade grounds",
 		3 : "+ Dance competition<br/><br/>+ 3rd March 2015<br/><br/>+ Exhibition ground", 
 		4 : "+ Stage performance<br/><br/>+ 18th March 2015<br/><br/>+ Parade grounds",
-		5 : "+ Dance competition<br/><br/>+ 28th March 2015<br/><br/>+ Parade grounds", 
+		5 : "+ Photography competition<br/><br/>+ 28th March 2015<br/><br/>+ Parade grounds", 
 		6 : "+ Solo acting<br/><br/>+ 3rd Apr 2015<br/><br/>+ Parade grounds", 
 		7 : "+ Rock show concert<br/>+ <br/>13th Apr 2015<br/><br/>+ Parade grounds", 
 		8 : "+ Chess with wizards<br/><br/>+ 18th Apr 2015<br/><br/>+ Parade grounds", 
@@ -30,8 +30,8 @@
 		"1" : "Whatever glory belongs to the race for a development unprecedented in history for the given length of time, a full share belongs to the womanhood of the race.<br/> <br/>~ Mary Mcleod Bethune",
 		"2" : "Music is a moral law. It gives soul to the universe, wings to the mind, flight to the imagination, and charm and gaiety to life and to everything.<br/><br/>~ Plato",
 		"3" : "Life is like dancing. If we have a big floor, many people will dance. Some will get angry when the rhythm changes. But life is changing all the time.<br/><br/>~ Miguel Angel Ruiz",
-		"4" : "All the world's a stage, and all the men and women merely players: they have their exits and their entrances; and one man in his time plays many parts, his acts being seven ages.<br/><br/>~ William Shakespeare",
-		"5" : "The dance can reveal everything mysterious that is hidden in music, and it has the additional merit of being human and palpable. Dancing is poetry with arms and legs.<br/><br/>~ Charles Baudelaire",
+		"4" : "All the world's a stage, and all the men and women merely players: they have their exits and their entrances; and one man in his time plays many parts, his acts being seven ages.<br/><br/>~ W. Shakespeare",
+		"5" : "My dream concept is that I have a camera and I am trying to photograph what is essentially invisible. And every once in a while I get a glimpse of her and I grab that picture.<br/><br/>~ Leonard Nimoy",
 		"6" : "Acting is not about being someone different. It's finding the similarity in what is apparently different, then finding myself in there.<br/><br/>~ Meryl Streep", 
 		"7" : "Rock and Roll has no beginning and no end for it is the very pulse of life itself.<br/><br/>~ Larry Williams",
 		"8" : "Chess is like a language, the top players are very fluent at it. Talent can be developed scientifically but you have to find first what you are good at.<br/><br/>~ Vishwanath Anand",
@@ -74,7 +74,7 @@
 			        width: '100%'		        
 			    }, 300);
 			    eventDetailCollpased = false;
-			    $('#photoframe').css('border-radius', '50%')			    			    			  		   
+			    $('#photoframe').css('border-radius', '50%');			    
 			}else{
 				console.log("Collapsing	 event details ...")
 				 $(this).animate({
@@ -83,7 +83,7 @@
 		       		width: '290px'		       	
 		    	}, 300);	
 				eventDetailCollpased = true;
-				$('#photoframe').css('border-radius', '0%')											
+				$('#photoframe').css('border-radius', '0%')				
 			}			
 			$('#extended-content').toggle()
 		})		
@@ -181,7 +181,7 @@ header p{
 	max-width:100%;
 	max-height:100%;
 	padding:10px;
-	border:3px solid #021a40;
+	border:3px solid #FFFFFF;
 	-webkit-transition: all 0.8s ease;
 	-moz-transition: all 0.8s ease;
 	-o-transition: all 0.8s ease;
@@ -234,10 +234,10 @@ header p{
 #extended-content{
 	color: #FFFFFF;
 	float: right;	
-	top: 150px;	
-	right: 50px;	
-	width : 300px;
-	position: absolute;	
+	top: 140px;	
+	right: 10px;	
+	width : 310px;
+	position: relative;	
 }
 #quotation{	
 	font-family:  "Courier New", Courier, monospace;	
