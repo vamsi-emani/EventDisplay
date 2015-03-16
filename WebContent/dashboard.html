@@ -76,6 +76,10 @@
 
 </script>
 <style>
+body{
+	background-attachment: fixed;	
+	background-image: url("samples/bg.jpg");
+}
 header {
 	display: block;
 	background: #34383c;	
@@ -139,7 +143,6 @@ header p{
 	height: 29px;	
 	border-radius: 10px;
 }
-
 #sidebar img:hover{	
 	background-color: #34383c;
 }	
@@ -172,7 +175,6 @@ header p{
 	-ms-transform: rotate(360deg);
 	transform: rotate(360deg);
 }
-
 #icon-pane{	
 	position:absolute;
 	top : 90px	;
@@ -194,15 +196,27 @@ header p{
 	bottom:0px;	   
 }
 #thumbnail-container img{
-	webkit-marquee: auto medium infinite alternate normal;  
+	-webkit-transition: all 0.1s ease;
+	-moz-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	-ms-transition: all 0.1s ease;
+	transition: all 0.1s ease;	
 }
 #thumbnail-container img:hover { 
-    background-color: #00ACED;
+    background-color: #00ACED;    
+    -webkit-transform: scale(1.1,1.1); 
+	-moz-transform: scale(1.1,1.1); 
+	-o-transform: scale(1.1,1.1); 
+	-ms-transform: scale(1.1,1.1); 
+	transform: scale(1.1,1.1); 
+}
+#extended-content{
+	color: #FFFFFF;
 }
 
 </style>
 </head>
-<body bgcolor="#d3d3d3" background="samples/bg.jpg">
+<body>
 	<header>
 		<img src="icons/logo.jpg" vspace="6" />			
 		<input id="searchbox" placeholder="Search..." type="search" />		
@@ -228,7 +242,8 @@ header p{
 	<div id="main-container">		
 		<img  id="photoframe" src="events/1.jpg"/ >		
 	</div>	
-	<div id="thumbnail-container">		
-	</div>	
+	<div id="extended-content">		
+	</div>
+	<div id="thumbnail-container"/>			
 </body>
 </html>
