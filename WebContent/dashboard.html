@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+<link href="http://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
 
 	/** variable declarations **/
-	var dir = "events/";	
+	var dir = "events/";
+	var currentThumbnail;
 	var eventDetailCollpased = true;
-	var title = "<h2><u>Upcoming Events</u></h2>"
+	var title = "<h2>Upcoming Events</h2>"
 	var thumbnailCSS = { "width" : "120px", "height" : "100px", 
 					     "padding" : "10px",
 						     /*"border":"1px solid #00ACED"	*/					     
 					    }
-	var details = {
+	var eventDetails = {
 		1 : "Women's day celebrations<br/><br/>13th Feb 2015<br/><br/>Parade grounds",
 		2 : "Strings and guitars<br/><br/>18th Feb 2015<br/><br/>Parade grounds",
 		3 : "Dance competition<br/><br/>3rd March 2015<br/><br/>Exhibition ground", 
@@ -22,8 +25,22 @@
 		7 : "Rock show concert<br/><br/>13th Apr 2015<br/><br/>Parade grounds", 
 		8 : "Chess with wizards<br/><br/>18th Apr 2015<br/><br/>Parade grounds", 
 		9 : "Comic buzz<br/><br/>23th Apr 2015<br/><br/>Parade grounds"
-	}
+	}	
 
+	/** for extended content **/
+	var eventQuotes = {
+		"1" : "Whatever glory belongs to the race for a development unprecedented in history for the given length of time, a full share belongs to the womanhood of the race.<br/> <br/>~ Mary Mcleod Bethune",
+		"2" : "Music is a moral law. It gives soul to the universe, wings to the mind, flight to the imagination, and charm and gaiety to life and to everything.<br/><br/>~ Plato",
+		"3" : "Life is like dancing. If we have a big floor, many people will dance. Some will get angry when the rhythm changes. But life is changing all the time.<br/><br/>~ Miguel Angel Ruiz",
+		"4" : "All the world's a stage, and all the men and women merely players: they have their exits and their entrances; and one man in his time plays many parts, his acts being seven ages.<br/><br/>~ William Shakespeare",
+		"5" : "The dance can reveal everything mysterious that is hidden in music, and it has the additional merit of being human and palpable. Dancing is poetry with arms and legs.<br/><br/>~ Charles Baudelaire",
+		"6" : "Acting is not about being someone different. It's finding the similarity in what is apparently different, then finding myself in there.<br/><br/>~ Meryl Streep", 
+		"7" : "Rock and Roll has no beginning and no end for it is the very pulse of life itself.<br/><br/>~ Larry Williams",
+		"8" : "Chess is like a language, the top players are very fluent at it. Talent can be developed scientifically but you have to find first what you are good at.<br/><br/>~ Vishwanath Anand",
+		"9" : "A day without laughter is a day wasted.<br/><br/>~ Charlie Chaplin"
+
+	}
+	
 	function createThumbnails(){
 		for(i=1; i<=9;i++){
 		  	var source = dir+i.toString()+".jpg";
@@ -31,8 +48,9 @@
 		  	thumbnail.css(thumbnailCSS);			
 			$('#thumbnail-container').append(thumbnail);
 			thumbnail.on("click", function(){
+				currentThumbnail = this;
 				showImage(this);
-				displayDetails(this);				
+				displayEventDetails(this);				
 			});			
 		}  
 	}
@@ -41,43 +59,48 @@
 		$('#main-container img').attr('src', $(thumbnail).attr('src'))		
 	}	
 	
-	function displayDetails(thumbnail){
+	function displayEventDetails(thumbnail){
 		var key = $(thumbnail).attr('id');
-		console.log(details[key])
-		$('#event-detail').html(title+"<p> "+details[key]+"</p>")
+		var expandCollpase = "<br/><br/><br/><b><< Click to expand/collapse >></b>"						
+		$('#event-detail').html(title+"<p> "+eventDetails[key]+expandCollpase+"</p>")	
+		if(!eventDetailCollpased)
+			$('#quotation').html(eventQuotes[key])
 	}
-
-	function animateEventDetail(){		
+	
+	function animateEventDetail(){				
 		$('#event-detail').click(function(){
-			if(eventDetailCollpased){
+			if(eventDetailCollpased){				
 				$(this).animate({
 			        top : '57px', 
-			        height : '100%',		        
+			        height : '90%',		        
 			        width: '100%'		        
 			    }, 300);
 			    eventDetailCollpased = false;
-			    $('#photoframe').css('border-radius', '50%')
+			    $('#photoframe').css('border-radius', '50%')			    			    			  		   
 			}else{
+				console.log("Collapsing	 event details ...")
 				 $(this).animate({
 		        	height: '250px',
 		       		top: '150px',
 		       		width: '270px'		       	
 		    	}, 300);	
 				eventDetailCollpased = true;
-				$('#photoframe').css('border-radius', '0%')
-			}
+				$('#photoframe').css('border-radius', '0%')											
+			}			
+			$('#extended-content').toggle()
 		})		
 	};
 
 	$( document ).ready(function() {				
   		createThumbnails(); 	
-  		animateEventDetail();   		
+  		animateEventDetail();   		  		
+  		$('#extended-content').hide();  		
 	})	
 
 </script>
 <style>
 body{
-	background-attachment: fixed;	
+	background-alttachment: fixed;	
 	background-image: url("samples/bg.jpg");
 }
 header {
@@ -109,13 +132,14 @@ header p{
 	position: relative;
 	left: 20px;
 	top: 0;	
-	font-family: Tahoma;	
+	font: 400 25px/1 'Nixie One', Georgia, serif;
+	font-weight: bold;
 	color: #d3d3d3;
 }
 #event-detail p{
 	position: absolute;
 	color: #FFFFFF;
-	font-family: Tahoma;	
+	font: 400 16px/1 'Nixie One', Georgia, serif;
 	left: 20px;
 	text-align: left;
 }
@@ -212,6 +236,16 @@ header p{
 }
 #extended-content{
 	color: #FFFFFF;
+	float: right;	
+	top: 100px;	
+	right: 50px;	
+	width : 300px;
+	position: absolute;	
+}
+#quotation{
+	
+	font-family: 'Tangerine', serif;
+    font-size: 38px;
 }
 
 </style>
@@ -223,10 +257,19 @@ header p{
 		<img style="float:right" vspace="16" src="icons/profile.jpg"/>			
 		<p>Vamsi Emani</p>		
 	</header>	
-	<div id="event-detail">
-		<h2><u>Upcoming Events</u></h2>	
-		<p>Women's day celebrations<br/><br/>13th Feb 2015<br/><br/>Parade grounds</p>						
+	<div id="event-detail" title="Click to view more content">
+		<h2>Upcoming Events</h2>	
+		<p>
+			Women's day celebrations<br/><br/>13th Feb 2015<br/><br/>Parade grounds
+			<br/><br/><br/><b><< Click to expand/collapse >></b>
+		</p>			
 	</div>		
+	<div id="extended-content">	
+			<p id="quotation">
+				 Whatever glory belongs to the race for a development unprecedented in history for the given length of time, a full share belongs to the womanhood of the race.
+				  <br/> <br/>~ Mary Mcleod Bethune
+			</p>
+		</div>					
 	<div id="sidebar">
 		<img src="icons/home.ico" vspace="10" />
 		<img src="icons/details.ico" vspace="10"/>
@@ -241,9 +284,7 @@ header p{
 	</div>	
 	<div id="main-container">		
 		<img  id="photoframe" src="events/1.jpg"/ >		
-	</div>	
-	<div id="extended-content">		
-	</div>
+	</div>		
 	<div id="thumbnail-container"/>			
 </body>
 </html>
