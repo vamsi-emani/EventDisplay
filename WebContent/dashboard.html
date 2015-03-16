@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-<link href="http://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
 
@@ -16,15 +14,15 @@
 						     /*"border":"1px solid #00ACED"	*/					     
 					    }
 	var eventDetails = {
-		1 : "Women's day celebrations<br/><br/>13th Feb 2015<br/><br/>Parade grounds",
-		2 : "Strings and guitars<br/><br/>18th Feb 2015<br/><br/>Parade grounds",
-		3 : "Dance competition<br/><br/>3rd March 2015<br/><br/>Exhibition ground", 
-		4 : "Stage performance<br/><br/>18th March 2015<br/><br/>Parade grounds",
-		5 : "Dance competition<br/><br/>28th March 2015<br/><br/>Parade grounds", 
-		6 : "Solo acting<br/><br/>3rd Apr 2015<br/><br/>Parade grounds", 
-		7 : "Rock show concert<br/><br/>13th Apr 2015<br/><br/>Parade grounds", 
-		8 : "Chess with wizards<br/><br/>18th Apr 2015<br/><br/>Parade grounds", 
-		9 : "Comic buzz<br/><br/>23th Apr 2015<br/><br/>Parade grounds"
+		1 : "+ Women's day celebrations<br/><br/>+ 13th Feb 2015<br/><br/>+ Parade grounds",
+		2 : "+ Strings and guitars<br/><br/>+ 18th Feb 2015<br/><br/>+ Parade grounds",
+		3 : "+ Dance competition<br/><br/>+ 3rd March 2015<br/><br/>+ Exhibition ground", 
+		4 : "+ Stage performance<br/><br/>+ 18th March 2015<br/><br/>+ Parade grounds",
+		5 : "+ Dance competition<br/><br/>+ 28th March 2015<br/><br/>+ Parade grounds", 
+		6 : "+ Solo acting<br/><br/>+ 3rd Apr 2015<br/><br/>+ Parade grounds", 
+		7 : "+ Rock show concert<br/>+ <br/>13th Apr 2015<br/><br/>+ Parade grounds", 
+		8 : "+ Chess with wizards<br/><br/>+ 18th Apr 2015<br/><br/>+ Parade grounds", 
+		9 : "+ Comic buzz<br/><br/>+ 23th Apr 2015<br/><br/>+ Parade grounds"
 	}	
 
 	/** for extended content **/
@@ -61,7 +59,7 @@
 	
 	function displayEventDetails(thumbnail){
 		var key = $(thumbnail).attr('id');
-		var expandCollpase = "<br/><br/><br/><b><< Click to expand/collapse >></b>"						
+		var expandCollpase = "<br/><br/><br/><b>Click to expand/collapse</b>"						
 		$('#event-detail').html(title+"<p> "+eventDetails[key]+expandCollpase+"</p>")	
 		if(!eventDetailCollpased)
 			$('#quotation').html(eventQuotes[key])
@@ -82,7 +80,7 @@
 				 $(this).animate({
 		        	height: '250px',
 		       		top: '150px',
-		       		width: '270px'		       	
+		       		width: '290px'		       	
 		    	}, 300);	
 				eventDetailCollpased = true;
 				$('#photoframe').css('border-radius', '0%')											
@@ -121,7 +119,7 @@ header p{
 }
 #event-detail{
 	position: absolute;
-	width: 270px;	
+	width: 290px;	
 	height: 250px;
 	top: 150px;
 	left: 50px;
@@ -131,15 +129,14 @@ header p{
 #event-detail h2{
 	position: relative;
 	left: 20px;
-	top: 0;	
-	font: 400 25px/1 'Nixie One', Georgia, serif;
-	font-weight: bold;
+	top: 0;		
+	font-family: monaco, Rockwell, Consolas, 'Courier Bold', Courier, Georgia, Times, 'Times New Roman', serif;
 	color: #d3d3d3;
 }
 #event-detail p{
 	position: absolute;
 	color: #FFFFFF;
-	font: 400 16px/1 'Nixie One', Georgia, serif;
+	font-family: monaco, Rockwell, Consolas, 'Courier Bold', Courier, Georgia, Times, 'Times New Roman', serif;	
 	left: 20px;
 	text-align: left;
 }
@@ -242,10 +239,9 @@ header p{
 	width : 300px;
 	position: absolute;	
 }
-#quotation{
-	
-	font-family: 'Tangerine', serif;
-    font-size: 38px;
+#quotation{	
+	font-family:  "Courier New", Courier, monospace;	
+    font-size: 1.5em;
 }
 
 </style>
@@ -260,8 +256,8 @@ header p{
 	<div id="event-detail" title="Click to view more content">
 		<h2>Upcoming Events</h2>	
 		<p>
-			Women's day celebrations<br/><br/>13th Feb 2015<br/><br/>Parade grounds
-			<br/><br/><br/><b><< Click to expand/collapse >></b>
+			+ Women's day celebrations<br/><br/>+ 13th Feb 2015<br/><br/>+ Parade grounds
+			<br/><br/><br/><b>Click to expand/collapse</b>
 		</p>			
 	</div>		
 	<div id="extended-content">	
