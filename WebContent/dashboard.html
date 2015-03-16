@@ -6,6 +6,7 @@
 
 	/** variable declarations **/
 	var dir = "events/";	
+	var eventDetailCollpased = true;
 	var title = "<h2><u>Upcoming Events</u></h2>"
 	var thumbnailCSS = { "width" : "120px", "height" : "100px", 
 					     "padding" : "10px",
@@ -31,16 +32,13 @@
 			$('#thumbnail-container').append(thumbnail);
 			thumbnail.on("click", function(){
 				showImage(this);
-				displayDetails(this);
-			});
-			thumbnail.on("mouseover", function () {
-			   // zoomIn(this);
-			});
+				displayDetails(this);				
+			});			
 		}  
 	}
 
 	function showImage(thumbnail){				
-		$('#main-container img').attr('src', $(thumbnail).attr('src'))
+		$('#main-container img').attr('src', $(thumbnail).attr('src'))		
 	}	
 	
 	function displayDetails(thumbnail){
@@ -49,8 +47,31 @@
 		$('#event-detail').html(title+"<p> "+details[key]+"</p>")
 	}
 
+	function animateEventDetail(){		
+		$('#event-detail').click(function(){
+			if(eventDetailCollpased){
+				$(this).animate({
+			        top : '57px', 
+			        height : '100%',		        
+			        width: '100%'		        
+			    }, 300);
+			    eventDetailCollpased = false;
+			    $('#photoframe').css('border-radius', '50%')
+			}else{
+				 $(this).animate({
+		        	height: '250px',
+		       		top: '150px',
+		       		width: '270px'		       	
+		    	}, 300);	
+				eventDetailCollpased = true;
+				$('#photoframe').css('border-radius', '0%')
+			}
+		})		
+	};
+
 	$( document ).ready(function() {				
-  		createThumbnails();  		
+  		createThumbnails(); 	
+  		animateEventDetail();   		
 	})	
 
 </script>
@@ -77,7 +98,8 @@ header p{
 	height: 250px;
 	top: 150px;
 	left: 50px;
-	background-color: #34383c;	
+	background-color: #000000;	
+	opacity : 0.7;
 }
 #event-detail h2{
 	position: relative;
@@ -93,7 +115,6 @@ header p{
 	left: 20px;
 	text-align: left;
 }
-
 #searchbox{	
 	position: absolute;
 	width: 310px;	
@@ -123,7 +144,7 @@ header p{
 	background-color: #34383c;
 }	
 #main-container{	
-  position: absolute;
+  position: absolute;  
   margin: auto;
   top: 0;
   right: 0;
@@ -138,18 +159,18 @@ header p{
 	padding:10px;
 	border:3px solid #021a40;
 	-webkit-transition: all 0.8s ease;
-    -moz-transition: all 0.8s ease;
-    -o-transition: all 0.8s ease;
-    -ms-transition: all 0.8s ease;
-    transition: all 0.8s ease;
+	-moz-transition: all 0.8s ease;
+	-o-transition: all 0.8s ease;
+	-ms-transition: all 0.8s ease;
+	transition: all 0.8s ease;
 }
-#main-container img:HOVER{
+#photoframe:HOVER{
 	border-radius: 50%;
-  	-webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
 }
 
 #icon-pane{	
@@ -168,9 +189,12 @@ header p{
 	width: 96%;
 	background-color: #151515;
 	height: 120px;
-	position:absolute;    
-    left :60px;
-    bottom:0px;    
+	position:absolute;
+	left :60px;
+	bottom:0px;	   
+}
+#thumbnail-container img{
+	webkit-marquee: auto medium infinite alternate normal;  
 }
 #thumbnail-container img:hover { 
     background-color: #00ACED;
@@ -178,17 +202,17 @@ header p{
 
 </style>
 </head>
-<body bgcolor="#d3d3d3">
+<body bgcolor="#d3d3d3" background="samples/bg.jpg">
 	<header>
 		<img src="icons/logo.jpg" vspace="6" />			
 		<input id="searchbox" placeholder="Search..." type="search" />		
 		<img style="float:right" vspace="16" src="icons/profile.jpg"/>			
 		<p>Vamsi Emani</p>		
-	</header>
+	</header>	
 	<div id="event-detail">
 		<h2><u>Upcoming Events</u></h2>	
-		<p>Women's day celebrations<br/><br/>13th Feb 2015<br/><br/>Parade grounds</p>		
-	</div>	
+		<p>Women's day celebrations<br/><br/>13th Feb 2015<br/><br/>Parade grounds</p>						
+	</div>		
 	<div id="sidebar">
 		<img src="icons/home.ico" vspace="10" />
 		<img src="icons/details.ico" vspace="10"/>
@@ -200,11 +224,11 @@ header p{
 	</div>
 	<div id="icon-pane">
 		<img src="icons/grid_black.ico"/>			
-	</div>
+	</div>	
 	<div id="main-container">		
-		<img  id="photoframe" src="samples/1.jpg"/>
-	</div>
+		<img  id="photoframe" src="events/1.jpg"/ >		
+	</div>	
 	<div id="thumbnail-container">		
-	</div>
+	</div>	
 </body>
 </html>

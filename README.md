@@ -1,4 +1,4 @@
-#EVENTS DISPLAY
+#Events Display
 
 A static webpage built using html5, css and jquery. 
  
