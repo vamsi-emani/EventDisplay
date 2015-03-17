@@ -75,9 +75,9 @@
 			if(eventDetailCollpased){				
 				$(this).animate({ top : '57px',  height : '90%', width: '100%' }, 300);
 			    eventDetailCollpased = false;
-			    $('#photoframe').css('border-radius', '50%');			    
+			    $('#photoframe').css('border-radius', '50%');				      
 			}else{				
-				 $(this).animate({ height: '250px', top: '150px', width: '280px' }, 300);	
+				 $(this).animate({ height: '250px', top: '150px', width: '270px' }, 300);	
 				eventDetailCollpased = true;
 				$('#photoframe').css('border-radius', '0%')				
 			}			
@@ -95,8 +95,8 @@
 </script>
 <style>
 body{	
-	background-image: url("samples/bg.jpg");
-	background-size: 100%;		
+	background-image: url("samples/bgg.jpg");
+	background-size: 100% auto;		
 	overflow: hidden;
 }
 header {
@@ -117,7 +117,7 @@ header p{
 }
 #event-detail{
 	position: absolute;
-	width: 280px;	
+	width: 270px;	
 	height: 250px;
 	top: 150px;
 	left: 50px;
@@ -172,7 +172,7 @@ header p{
   right: 0;
   bottom: 0;
   left: 0;
-  width: 35%;
+  width: 34%;
   height: 60%;
 }
 #main-container img{
@@ -223,7 +223,7 @@ header p{
 	transition: all 0.1s ease;	
 }
 #thumbnail-container img:hover { 
-    background-color: #00ACED;    
+    background-color: #00ACED;       
     -webkit-transform: scale(1.1,1.1); 
 	-moz-transform: scale(1.1,1.1); 
 	-o-transform: scale(1.1,1.1); 
@@ -231,18 +231,34 @@ header p{
 	transform: scale(1.1,1.1); 
 }
 #extended-content{
-	color: #FFFFFF;
+	color: #DDDDDD;
 	float: right;	
-	top: 140px;	
-	right: 0px;	
-	width : 30%;
+	bottom:120px;	
+	right: 10px;	
+	width : 29%;
 	position: fixed;	
 }
 #quotation{	
 	font-family:  "Courier New", Courier, monospace;	
-    font-size: 1.5em;       
+    font-size: 1.5em; 
+    -webkit-transition: all 0.7s ease;
+	transition: all 0.7s ease;      
 }
-
+#quotation:HOVER{
+	color: #FFFFFF;
+	text-shadow: 0 1px 0 #666,	
+	0 2px 0 #555,
+	1px 3px 0 #444,
+	2px 4px 0 #333,
+	3px 5px 0 #222,
+	4px 6px 1px #111,
+	0 0 5px rgba(0,0,0,.6),
+	0 1px 3px rgba(0,0,0,.5),
+	1px 3px 5px rgba(0,0,0,.4),
+	3px 5px 10px rgba(0,0,0,.3),
+	5px 10px 10px rgba(0,0,0,.2),
+	10px 20px 20px rgba(0,0,0,.1);	
+}
 </style>
 </head>
 <body>
@@ -255,7 +271,9 @@ header p{
 	<div id="event-detail" title="Click to view more content">
 		<h2>Upcoming Events</h2>	
 		<p>
-			+ Women's day celebrations<br/><br/>+ 13th Feb 2015<br/><br/>+ Parade grounds
+			+ Women's day celebrations<br/><br/>
+			+ 13th Feb 2015<br/><br/>
+			+ Parade grounds
 			<br/><br/><br/><b>Click to expand/collapse</b>
 		</p>			
 	</div>		
