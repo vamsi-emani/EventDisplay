@@ -40,7 +40,7 @@
 		  	var source = dir+i.toString()+".jpg";
 		  	var thumbnail = $('<img>',{id:i.toString(), src:source});
 		  	thumbnail.css(thumbnailCSS);			
-			$('#thumbnail-container').append(thumbnail);
+			$('.thumbnail-container').append(thumbnail);
 			thumbnail.on("click", function(){
 				currentThumbnail = this;
 				showImage(this);
@@ -51,31 +51,31 @@
 
 	/** Invoked upon thumbnail click. Sets the thumbnail image as the photoframe **/
 	function showImage(thumbnail){				
-		$('#main-container img').attr('src', $(thumbnail).attr('src'))		
+		$('.main-container img').attr('src', $(thumbnail).attr('src'))		
 	}	
 	
 	/** To display event info **/
 	function displayEventDetails(thumbnail){
 		var key = $(thumbnail).attr('id');
 		var expandCollpase = "<br/><br/><br/><b>Click to expand/collapse</b>"						
-		$('#event-detail').html(title+"<p> "+eventDetails[key]+expandCollpase+"</p>")	
+		$('.event-detail').html(title+"<p> "+eventDetails[key]+expandCollpase+"</p>")	
 		if(!eventDetailCollpased)
-			$('#quotation').html(eventQuotes[key])
+			$('.extended-content p').html(eventQuotes[key])
 	}
 	
 	/** Expand/Collpase animation for the event detail section **/
 	function addEventDetailAnimations(){				
-		$('#event-detail').click(function(){
+		$('.event-detail').click(function(){
 			if(eventDetailCollpased){				
 				$(this).animate({ top : '57px',  height : '90%', width: '100%' }, 300);
 			    eventDetailCollpased = false;
-			    $('#photoframe').css('border-radius', '50%');				      
+			    $('.photoframe').css('border-radius', '50%');				      
 			}else{				
 				 $(this).animate({ height: '250px', top: '150px', width: '270px' }, 300);	
 				eventDetailCollpased = true;
-				$('#photoframe').css('border-radius', '0%')				
+				$('.photoframe').css('border-radius', '0%')				
 			}			
-			$('#extended-content').toggle();
+			$('.extended-content').toggle();
 		})		
 	};
 
@@ -83,5 +83,5 @@
 	$( document ).ready(function() {				
   		createThumbnails(); 	
   		addEventDetailAnimations();   		  		
-  		$('#extended-content').hide();  		
+  		$('.extended-content').hide();  		
 	})	
