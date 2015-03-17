@@ -13,6 +13,7 @@
 					     "padding" : "10px",
 						     /*"border":"1px solid #00ACED"	*/					     
 					    }
+    /** Event name, date and venue info **/
 	var eventDetails = {
 		1 : "+ Women's day celebrations<br/><br/>+ 13th Feb 2015<br/><br/>+ Parade grounds",
 		2 : "+ Strings and guitars<br/><br/>+ 18th Feb 2015<br/><br/>+ Parade grounds",
@@ -20,12 +21,12 @@
 		4 : "+ Stage performance<br/><br/>+ 18th March 2015<br/><br/>+ Parade grounds",
 		5 : "+ Photography competition<br/><br/>+ 28th March 2015<br/><br/>+ Parade grounds", 
 		6 : "+ Solo acting<br/><br/>+ 3rd Apr 2015<br/><br/>+ Parade grounds", 
-		7 : "+ Rock show concert<br/>+ <br/>13th Apr 2015<br/><br/>+ Parade grounds", 
+		7 : "+ Rock show concert<br/><br/>+ 13th Apr 2015<br/><br/>+ Parade grounds", 
 		8 : "+ Chess with wizards<br/><br/>+ 18th Apr 2015<br/><br/>+ Parade grounds", 
 		9 : "+ Comic buzz<br/><br/>+ 23th Apr 2015<br/><br/>+ Parade grounds"
 	}	
 
-	/** for extended content **/
+	/** for extended content - quotes/more info.. **/
 	var eventQuotes = {
 		"1" : "Whatever glory belongs to the race for a development unprecedented in history for the given length of time, a full share belongs to the womanhood of the race.<br/> <br/>~ Mary Mcleod Bethune",
 		"2" : "Music is a moral law. It gives soul to the universe, wings to the mind, flight to the imagination, and charm and gaiety to life and to everything.<br/><br/>~ Plato",
@@ -39,6 +40,7 @@
 
 	}
 	
+	/** Creates a row of thumbnail images displayed at the bottom **/
 	function createThumbnails(){
 		for(i=1; i<=9;i++){
 		  	var source = dir+i.toString()+".jpg";
@@ -53,10 +55,12 @@
 		}  
 	}
 
+	/** Invoked upon thumbnail click. Sets the thumbnail image as the photoframe **/
 	function showImage(thumbnail){				
 		$('#main-container img').attr('src', $(thumbnail).attr('src'))		
 	}	
 	
+	/** To display event info **/
 	function displayEventDetails(thumbnail){
 		var key = $(thumbnail).attr('id');
 		var expandCollpase = "<br/><br/><br/><b>Click to expand/collapse</b>"						
@@ -65,41 +69,35 @@
 			$('#quotation').html(eventQuotes[key])
 	}
 	
-	function animateEventDetail(){				
+	/** Expand/Collpase animation for the event detail section **/
+	function addEventDetailAnimations(){				
 		$('#event-detail').click(function(){
 			if(eventDetailCollpased){				
-				$(this).animate({
-			        top : '57px', 
-			        height : '90%',		        
-			        width: '100%'		        
-			    }, 300);
+				$(this).animate({ top : '57px',  height : '90%', width: '100%' }, 300);
 			    eventDetailCollpased = false;
 			    $('#photoframe').css('border-radius', '50%');			    
-			}else{
-				console.log("Collapsing	 event details ...")
-				 $(this).animate({
-		        	height: '250px',
-		       		top: '150px',
-		       		width: '290px'		       	
-		    	}, 300);	
+			}else{				
+				 $(this).animate({ height: '250px', top: '150px', width: '280px' }, 300);	
 				eventDetailCollpased = true;
 				$('#photoframe').css('border-radius', '0%')				
 			}			
-			$('#extended-content').toggle()
+			$('#extended-content').toggle();
 		})		
 	};
 
+	/** Entry point **/
 	$( document ).ready(function() {				
   		createThumbnails(); 	
-  		animateEventDetail();   		  		
+  		addEventDetailAnimations();   		  		
   		$('#extended-content').hide();  		
 	})	
 
 </script>
 <style>
-body{
-	background-alttachment: fixed;	
+body{	
 	background-image: url("samples/bg.jpg");
+	background-size: 100%;		
+	overflow: hidden;
 }
 header {
 	display: block;
@@ -111,7 +109,7 @@ header {
 	padding-right: 0;	
 }
 header p{	
-	position: absolute;
+	position: fixed;
 	top : 5px;
 	right: 70px;
 	color: #FFFFFF;
@@ -119,7 +117,7 @@ header p{
 }
 #event-detail{
 	position: absolute;
-	width: 290px;	
+	width: 280px;	
 	height: 250px;
 	top: 150px;
 	left: 50px;
@@ -147,7 +145,7 @@ header p{
 	left: 100px;
 }
 #sidebar {
-    position:absolute;
+    position:fixed;
     top:70px; bottom:0; left:0;
     width:60px;
     background:#E62F17;
@@ -174,8 +172,8 @@ header p{
   right: 0;
   bottom: 0;
   left: 0;
-  width: 530px;
-  height: 430px;
+  width: 35%;
+  height: 60%;
 }
 #main-container img{
 	max-width:100%;
@@ -214,7 +212,8 @@ header p{
 	height: 120px;
 	position:absolute;
 	left :60px;
-	bottom:0px;	   
+	bottom:0px;	 	
+	overflow: hidden;		
 }
 #thumbnail-container img{
 	-webkit-transition: all 0.1s ease;
@@ -235,13 +234,13 @@ header p{
 	color: #FFFFFF;
 	float: right;	
 	top: 140px;	
-	right: 10px;	
-	width : 310px;
-	position: relative;	
+	right: 0px;	
+	width : 30%;
+	position: fixed;	
 }
 #quotation{	
 	font-family:  "Courier New", Courier, monospace;	
-    font-size: 1.5em;
+    font-size: 1.5em;       
 }
 
 </style>
