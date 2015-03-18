@@ -119,14 +119,17 @@ header p{
 	bottom:0px;	 	
 	overflow: hidden;		
 }
-.thumbnail-container img{
+.thumbnail{
 	-webkit-transition: all 0.1s ease;
 	-moz-transition: all 0.1s ease;
 	-o-transition: all 0.1s ease;
 	-ms-transition: all 0.1s ease;
 	transition: all 0.1s ease;	
+	width : 120px; 
+	height : 100px;
+	padding : 10px;		
 }
-.thumbnail-container img:hover { 
+.thumbnail:hover { 
     background-color: #00ACED;       
     -webkit-transform: scale(1.1,1.1); 
 	-moz-transform: scale(1.1,1.1); 
