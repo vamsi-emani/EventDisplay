@@ -28,7 +28,8 @@ header p{
 	background-color: #000000;	
 	opacity : 0.7;
 	cursor: pointer;
-	white-space:nowrap;	
+	white-space:nowrap;
+	overflow: hidden;	
 }
 .event-detail h2{
 	position: relative;
