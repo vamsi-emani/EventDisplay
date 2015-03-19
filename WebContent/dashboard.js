@@ -58,6 +58,5 @@
 	$( document ).ready(function() {				
 		addEventDetailAnimations(); 						
 		initPageWithFirstEvent();  
-  		addThumbnailClickActions();   		  		
-  		addThumbnailHoverActions();		 		 		  		
+  		addThumbnailClickActions();    				 		 		  	
 	})	
