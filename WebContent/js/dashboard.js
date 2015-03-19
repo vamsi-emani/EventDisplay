@@ -1,5 +1,5 @@
 /** variable declarations **/
-	var dir = "events/";
+	var dir = "images/events/";
 	var currentThumbnail;
 	var eventDetailCollpased = true;	
 		
