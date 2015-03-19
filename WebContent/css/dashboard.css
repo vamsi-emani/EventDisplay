@@ -124,7 +124,7 @@ header p{
 	left :60px;
 	bottom:0px;	
 	white-space:nowrap; 	
-	overflow-x: scroll;
+	overflow-x: auto;
 	overflow-y : hidden;	
 }
 .thumbnail{
