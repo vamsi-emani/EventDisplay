@@ -116,7 +116,7 @@ header p{
 .thumbnail-container{
 	width: 96%;
 	background-color: #151515;
-	height: 120px;
+	height: 132px;
 	position:absolute;
 	left :60px;
 	bottom:0px;	 	
@@ -130,8 +130,11 @@ header p{
 	transition: all 0.1s ease;	
 	width : 120px; 
 	height : 100px;
-	padding : 10px;		
-	cursor: pointer;
+	padding-bottom : 16px;
+	padding-top : 16px;
+	padding-left : 8px;
+	padding-right : 8px;	
+	cursor: pointer;	
 }
 .thumbnail:hover { 
     background-color: #00ACED;       
