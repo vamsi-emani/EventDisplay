@@ -117,10 +117,13 @@ header p{
 	width: 96%;
 	background-color: #151515;
 	height: 132px;
+	max-height : 132px;
 	position:absolute;
 	left :60px;
-	bottom:0px;	 	
-	overflow: hidden;		
+	bottom:0px;	
+	white-space:nowrap; 	
+	overflow-x: scroll;
+	overflow-y : hidden;	
 }
 .thumbnail{
 	-webkit-transition: all 0.1s ease;
