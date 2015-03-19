@@ -37,7 +37,7 @@
 			    eventDetailCollpased = false;
 			    $('.photoframe').css('border-radius', '50%');				      
 			}else{				
-				 $(this).animate({ height: '250px', top: '150px', width: '270px' }, 300);	
+				 $(this).animate({ width: '22%', height: '40%', top: '150px' }, 300);	
 				eventDetailCollpased = true;
 				$('.photoframe').css('border-radius', '0%')				
 			}			
