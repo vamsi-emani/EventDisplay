@@ -1,13 +1,11 @@
 /** variable declarations **/
-	var dir = "images/events/";
-	var currentThumbnail;
+	var dir = "images/events/";	
 	var eventDetailCollpased = true;	
 		
 	function addThumbnailClickActions(){
-		$('.thumbnail').on("click", function(){			
-			currentThumbnail = this;
-			showImage(currentThumbnail);
-			displayEventDetails(currentThumbnail);				
+		$('.thumbnail').on("click", function(){						
+			showImage(this);
+			displayEventDetails(this);				
 		});			
 	}
 
